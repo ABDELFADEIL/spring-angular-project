@@ -1,1 +1,1 @@
-# spring-angular-project
+# spring-angular-projects

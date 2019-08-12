@@ -47,36 +47,35 @@ public class DemoApplication implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		config.exposeIdsFor(Pannier.class, Produit.class, Categorie.class, AppRole.class,  AppUser.class);
 
-		 AppRole r1 = new AppRole(null, "USER"); AppRole r2 = new AppRole(null, "ADMIN"); 
-		 accountService.saveRole(r1);
-		 accountService.saveRole(r2);
-		 
-		 AppUser appUser = new AppUser(); appUser.setUsername("admin");
-		 appUser.setPassword("1234");
-		 //appUser.getRoles().add(r1); 
-		 //appUser.getRoles().add(r2); 
-		 accountService.saveUser(appUser);
-		 accountService.addRoleToUser("admin", "USER");
-		 accountService.addRoleToUser("admin", "ADMIN");
-		 
-		 
-		  Categorie c = new Categorie(); c.setDesc("categorie 1");
-		  categorieRespository.save(c);
-		  
-		  for (int i = 0; i < 10; i++) { Produit p = new Produit();
-		  p.setName("Smart Tv SAMSUNG");
-		  p.setDesc("Smart Tv SAMSUNG 41' UHD model 2500"); p.setCategorie(c);
-		  p.setPhotoName("DVD_ROCK"); produitRespository.save(p);
-		
-		  }
-	 
-		Categorie c2 = new Categorie(); c.setDesc("categorie 1");
-		categorieRespository.save(c2); categorieRespository.save(c); for (int i = 0;
-		  i < 10; i++) { Produit p = new Produit(); p.setName("Smart Tv Sonny");
-		  p.setDesc("Smart Tv Sonny 50' Full hd model 3010"); p.setCategorie(c2);
-		p.setPhotoName("DVD_ROCK"); produitRespository.save(p);
-		 
-		 }
+		/*
+		 * AppRole r1 = new AppRole(null, "USER"); AppRole r2 = new AppRole(null,
+		 * "ADMIN"); accountService.saveRole(r1); accountService.saveRole(r2);
+		 * 
+		 * AppUser appUser = new AppUser(); appUser.setUsername("admin");
+		 * appUser.setPassword("1234"); //appUser.getRoles().add(r1);
+		 * //appUser.getRoles().add(r2); accountService.saveUser(appUser);
+		 * accountService.addRoleToUser("admin", "USER");
+		 * accountService.addRoleToUser("admin", "ADMIN");
+		 * 
+		 * 
+		 * Categorie c = new Categorie(); c.setDesc("categorie 1");
+		 * categorieRespository.save(c);
+		 * 
+		 * for (int i = 0; i < 10; i++) { Produit p = new Produit();
+		 * p.setName("Smart Tv SAMSUNG");
+		 * p.setDesc("Smart Tv SAMSUNG 41' UHD model 2500"); p.setCategorie(c);
+		 * p.setPhotoName("DVD_ROCK"); produitRespository.save(p);
+		 * 
+		 * }
+		 * 
+		 * Categorie c2 = new Categorie(); c.setDesc("categorie 1");
+		 * categorieRespository.save(c2); categorieRespository.save(c); for (int i = 0;
+		 * i < 10; i++) { Produit p = new Produit(); p.setName("Smart Tv Sonny");
+		 * p.setDesc("Smart Tv Sonny 50' Full hd model 3010"); p.setCategorie(c2);
+		 * p.setPhotoName("DVD_ROCK"); produitRespository.save(p);
+		 * 
+		 * }
+		 */
 		
 		/*
 		 * AppRole r1 = new AppRole(null, "USER"); AppRole r2 = new AppRole(null,

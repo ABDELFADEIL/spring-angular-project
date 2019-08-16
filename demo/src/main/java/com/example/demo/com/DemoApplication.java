@@ -18,6 +18,7 @@ import com.example.demo.com.entities.AppRole;
 import com.example.demo.com.entities.AppUser;
 import com.example.demo.com.entities.Categorie;
 import com.example.demo.com.entities.Pannier;
+import com.example.demo.com.entities.Post;
 import com.example.demo.com.entities.Produit;
 import com.example.demo.com.entities.UserForm;
 import com.example.demo.com.service.AccountService;
@@ -45,7 +46,7 @@ public class DemoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		config.exposeIdsFor(Pannier.class, Produit.class, Categorie.class, AppRole.class,  AppUser.class);
+		config.exposeIdsFor(Pannier.class, Produit.class, Categorie.class, AppRole.class,  AppUser.class, Post.class);
 
 		/*
 		 * AppRole r1 = new AppRole(null, "USER"); AppRole r2 = new AppRole(null,

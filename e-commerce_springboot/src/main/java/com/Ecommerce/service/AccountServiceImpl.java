@@ -39,7 +39,7 @@ public class AccountServiceImpl implements AccountService{
 		AppRole r=roleRepository.findByRoleName(roleName);
 	    AppUser user=userRepository.findByUsername(username);
 	    user.getRoles().add(r);
-		 userRepository.save(user);
+		userRepository.save(user);
 
 	    
 	

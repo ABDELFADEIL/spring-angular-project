@@ -7,15 +7,15 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.data.rest.core.annotation.RepositoryRestResource;
 import org.springframework.web.bind.annotation.CrossOrigin;
 
-import com.Ecommerce.entities.Pannier;
+import com.Ecommerce.entities.Panier;
 
 
 
 
 @CrossOrigin("*")
 @RepositoryRestResource
-public interface PannierRepository extends JpaRepository<Pannier, Long>{
+public interface PanierRepository extends JpaRepository<Panier, Long>{
 	
-	public Pannier findByUser(Long id);
+	public Panier findByUser(Long id);
 
 }

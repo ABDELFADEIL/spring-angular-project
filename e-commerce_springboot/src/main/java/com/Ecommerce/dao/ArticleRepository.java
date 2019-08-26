@@ -15,7 +15,7 @@ import java.util.List;
 
 @CrossOrigin("*")
 @RepositoryRestResource
-public interface ArticleRespository extends JpaRepository<Article, Long> {
+public interface ArticleRepository extends JpaRepository<Article, Long> {
 
 	
 	//public Page<Article> findByUser(@Param("id") Long id, Pageable pageable);

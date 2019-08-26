@@ -11,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,7 +23,7 @@ import lombok.NoArgsConstructor;
 public class AppUser {
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long id;
+	private Long idAppUser;
 	@Column(unique=true)
 	private String username;
 	private String password;
@@ -33,4 +34,6 @@ public class AppUser {
 	private String tel;
 	@OneToMany(mappedBy="user")
 	private Collection<Commande> commandes;
+	@OneToOne(mappedBy="user")
+	private Panier panier;
 }

@@ -10,13 +10,13 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Ecommerce.entities.Article;
-import com.Ecommerce.dao.ArticleRespository;
+import com.Ecommerce.dao.ArticleRepository;
 
 //@CrossOrigin("*")
 //@RestController
 public class ArticleController {
 //    @Autowired
-//	private ArticleRespository articleRespository;
+//	private ArticleRepository articleRespository;
 //    
 //    @GetMapping("/articles/")
 //    public List<Article> getArticles(){

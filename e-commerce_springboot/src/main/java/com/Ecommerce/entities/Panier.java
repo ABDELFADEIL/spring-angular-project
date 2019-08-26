@@ -10,6 +10,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Transient;
@@ -26,14 +27,22 @@ import lombok.Setter;
 @AllArgsConstructor
 @Getter
 @Setter
-public class Pannier implements Serializable {
+public class Panier implements Serializable {
 
 
 	@Id @GeneratedValue
 	private Long idPannier;
-	@OneToOne 
+	@OneToOne
+	@JoinColumn(name="idAppUser")
 	private AppUser user;
 	private HashMap<Long, LigneCommande> items;
+	
+	public Panier(AppUser user) {
+		super();
+		this.user = user;
+	}
+	
+	
 	
 //	@OneToMany(mappedBy = "pannier")
 //	private Collection<Article> articles;

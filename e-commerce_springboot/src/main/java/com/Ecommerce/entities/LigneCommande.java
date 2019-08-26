@@ -21,6 +21,6 @@ public class LigneCommande {
 	@JoinColumn(name="idArticle")
 	private Article article;
 	private int quantite;
-	private double prix;
+
 
 }

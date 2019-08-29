@@ -31,6 +31,7 @@ public interface ArticleRepository extends JpaRepository<Article, Long> {
 	public Page<Article> findByDescriptionContains(@Param("mc") String mc, Pageable pageable);
     public Page<Article> findByCategoryIdCategory(@Param("idCategory")Long idCategory, Pageable pageable);
 	public Page<Article> findByCategoryIdCategoryAndDescriptionContains(@Param("idCategory")Long idCategory, @Param("mc") String mc, Pageable pageable);
+    public List<Article> findByCategoryIdCategory(@Param("idCategory")Long idCategory);
 
 
 

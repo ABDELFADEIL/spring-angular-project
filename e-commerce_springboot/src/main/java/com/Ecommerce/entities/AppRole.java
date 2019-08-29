@@ -1,5 +1,6 @@
 package com.Ecommerce.entities;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
 
@@ -13,10 +14,11 @@ import javax.persistence.ManyToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Entity
-@Data @AllArgsConstructor @NoArgsConstructor
-public class AppRole {
+@Data @AllArgsConstructor @NoArgsConstructor @ToString
+public class AppRole implements Serializable{
 
 @Id @GeneratedValue(strategy=GenerationType.AUTO)
 private Long id;

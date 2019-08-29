@@ -21,23 +21,19 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
 
 
 
 @Entity
 @Data
-@NoArgsConstructor @AllArgsConstructor @Getter @Setter
+@NoArgsConstructor @AllArgsConstructor @ToString
 public class Commande implements Serializable{
 	
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idCommande;
 	private String dateCommande;
-	@ManyToOne
-	@JoinColumn(name="idUser")
-	private AppUser user;
-	
-	
 	@OneToMany
 	@JoinColumn(name="idCommande")
 	private Collection<LigneCommande> ligneCommandes;

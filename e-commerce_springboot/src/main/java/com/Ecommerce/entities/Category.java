@@ -12,6 +12,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.LazyCollection;
+import org.hibernate.annotations.LazyCollectionOption;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -31,6 +34,7 @@ public class Category implements Serializable{
 	private String description;
 	
 	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
-	private Collection<Article> articles;
+	@LazyCollection(LazyCollectionOption.FALSE)
+	private Collection<Article> articles = new ArrayList<>();
 
 }

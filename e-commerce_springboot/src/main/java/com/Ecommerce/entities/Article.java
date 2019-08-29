@@ -34,8 +34,8 @@ public class Article implements Serializable{
 	private String photo;
 	@ManyToOne
 	@JoinColumn(name="idCategory")
-	private Category category;	
-	@ManyToOne
-	private Commande commande;
+	private Category category;
+	private boolean disponible;	
+	
 	
 }

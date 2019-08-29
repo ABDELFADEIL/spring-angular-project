@@ -36,6 +36,25 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
+	<!-- 	  <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-core</artifactId>
+        </dependency>
+        https://mvnrepository.com/artifact/com.fasterxml.jackson.core/jackson-databind
+Jackson due to SpringBootStarterParent dependency problems
+<dependency>
+   <groupId>com.fasterxml.jackson.core</groupId>
+   <artifactId>jackson-databind</artifactId>
+</dependency>
+<dependency>
+   <groupId>com.fasterxml.jackson.core</groupId>
+   <artifactId>jackson-core</artifactId>
+</dependency>
+<dependency>
+   <groupId>com.fasterxml.jackson.core</groupId>
+   <artifactId>jackson-annotations</artifactId>
+</dependency> -->
+ 
 
 		<!-- <dependency>
 			<groupId>org.springframework.boot</groupId>

@@ -33,7 +33,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 		http.csrf().disable();
 	// http.formLogin();
 	 http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
-	 http.authorizeRequests().antMatchers("/signup/**","/login/**", "/**", "/h2/**")
+	 http.authorizeRequests().antMatchers("/signup/**","/login/**", "/**", "/**/**")
 	 .permitAll();
 	 http.authorizeRequests().antMatchers(HttpMethod.POST,"/articles/**").
 	 hasAuthority("ADMIN").anyRequest().authenticated();

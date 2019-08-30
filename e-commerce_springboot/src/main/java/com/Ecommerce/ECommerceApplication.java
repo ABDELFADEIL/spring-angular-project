@@ -106,15 +106,15 @@ public class ECommerceApplication implements CommandLineRunner {
 		  
 		  accountService.saveUser(u1); accountService.saveUser(u2);
 		  
-		/*
-		 * u1.getAdresses().add(a1); u1.getAdresses().add(a2); u1.getAdresses().add(a5);
-		 * 
-		 * u2.getAdresses().add(a3); u2.getAdresses().add(a4);
-		 * 
-		 * adresseRepository.save(a1); adresseRepository.save(a2);
-		 * adresseRepository.save(a3); adresseRepository.save(a4);
-		 * adresseRepository.save(a5);
-		 */
+		
+		  u1.getAdresses().add(a1); u1.getAdresses().add(a2); u1.getAdresses().add(a5);
+		  
+		  u2.getAdresses().add(a3); u2.getAdresses().add(a4);
+		  
+		  adresseRepository.save(a1); adresseRepository.save(a2);
+		  adresseRepository.save(a3); adresseRepository.save(a4);
+		  adresseRepository.save(a5);
+		 
 		  
 		  accountService.saveUser(u1); accountService.saveUser(u2);
 		  
@@ -124,7 +124,7 @@ public class ECommerceApplication implements CommandLineRunner {
 		  accountService.addRoleToUser(u2.getUsername(), r2.getRoleName());
 		  
 		  
-		  u1.setPanier(p1); u2.setPanier(p2);
+		//  u1.setPanier(p1); u2.setPanier(p2);
 		  
 		  
 		/* accountService.saveUser(u1); accountService.saveUser(u2); */
@@ -189,6 +189,15 @@ public class ECommerceApplication implements CommandLineRunner {
 		 * 
 		 * panierService.DeleteArtcle(lc.getIdLigneCommande());
 		 */
+		 
+		 AppUser user = new AppUser();
+		 user.setUsername("rabab");
+		 user.setPassword(bCryptPasswordEncoder.encode("1234"));
+		 userRepository.save(user);
+		 
+		 
+		AppUser u =userRepository.findOne(3L);
+		userRepository.delete(u);
 
 		config.exposeIdsFor(Article.class, Category.class, Commande.class, Panier.class, AppUser.class);
 	}

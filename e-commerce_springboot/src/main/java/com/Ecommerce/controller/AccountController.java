@@ -2,9 +2,10 @@ package com.Ecommerce.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.Ecommerce.dao.RoleRepository;
@@ -41,6 +42,17 @@ public class AccountController {
 		accountService.addRoleToUser(username, role.getRoleName());
 
 		return (u);
+	}
+	
+	@PostMapping("/modifier")
+	public AppUser modifierDetail(@RequestBody AppUser user) {
+		return userRepository.save(user);
+	}
+	
+	
+	@DeleteMapping("deleteUser/{id}")
+	public void deleteUser(@PathVariable("id") Long id) {
+		userRepository.delete(id);
 	}
 	
 

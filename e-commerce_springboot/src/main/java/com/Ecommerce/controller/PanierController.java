@@ -36,7 +36,7 @@ public class PanierController {
 	@Autowired
 	private AccountService accountService;
 	@Autowired
-	private UserRepository userRepository;
+	private UserRepository  userRepository;
 	@Autowired
 	private ArticleRepository articleRepository;
 	@Autowired
@@ -82,9 +82,9 @@ public class PanierController {
 		return  (List<LigneCommande>) panierService.getAllArticlesPanier(id);
 		} 
 	
-	@GetMapping(value="/getAllArticlesListPage")
+	@GetMapping(value="/getAllArticlesListPage/{id}")
 	public Page<LigneCommande> getAllArticlesPanierPage(
-			@RequestParam Long id,
+			@PathVariable Long id,
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="10") int size
 			)

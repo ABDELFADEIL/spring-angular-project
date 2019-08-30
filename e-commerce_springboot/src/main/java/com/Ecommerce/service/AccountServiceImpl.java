@@ -40,9 +40,11 @@ public class AccountServiceImpl implements AccountService{
 	    AppUser user=userRepository.findByUsername(username);
 	    user.getRoles().add(r);
 		userRepository.save(user);
-
-	    
+	}
 	
+	@Override
+	public void deleteUser(Long idUser) {
+	  	userRepository.delete(idUser);
 	}
 
 }

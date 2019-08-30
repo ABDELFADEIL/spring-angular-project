@@ -19,6 +19,7 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -39,13 +40,15 @@ public class AppUser implements Serializable{
 	private String firstName;
 	private String lastName;
 	@ManyToMany
-	@LazyCollection(LazyCollectionOption.TRUE)
+	@JsonIgnore
+	//@LazyCollection(LazyCollectionOption.TRUE)
 	private Collection<AppRole> roles= new ArrayList<>();
 	private String adresse;
 	private String email;
 	private String tel;
 	@OneToMany(mappedBy="appUser")
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonIgnore
+	//@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<Adresse> adresses = new ArrayList<>();
 	@OneToOne(mappedBy="appUser")
 	private Panier panier;

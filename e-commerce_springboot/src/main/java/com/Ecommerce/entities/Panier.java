@@ -26,6 +26,7 @@ import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 import org.hibernate.annotations.Parameter;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import lombok.AllArgsConstructor;
@@ -44,12 +45,13 @@ public class Panier implements Serializable {
 	@Id @GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@OneToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name = "idUser")
+	@OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
     private AppUser appUser;
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonIgnore
+	//@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<LigneCommande> items;
 	
 	

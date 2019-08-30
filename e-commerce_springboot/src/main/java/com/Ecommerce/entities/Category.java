@@ -15,6 +15,8 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -34,7 +36,8 @@ public class Category implements Serializable{
 	private String description;
 	
 	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
-	@LazyCollection(LazyCollectionOption.FALSE)
+	@JsonIgnore
+	//@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<Article> articles = new ArrayList<>();
 
 }

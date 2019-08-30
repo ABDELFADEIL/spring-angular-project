@@ -16,6 +16,8 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.persistence.Transient;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.Getter;
@@ -36,6 +38,7 @@ public class Commande implements Serializable{
 	private String dateCommande;
 	@OneToMany
 	@JoinColumn(name="idCommande")
+	@JsonIgnore
 	private Collection<LigneCommande> ligneCommandes;
 	 
 	/*

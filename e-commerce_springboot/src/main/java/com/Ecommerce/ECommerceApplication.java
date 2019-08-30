@@ -195,7 +195,6 @@ public class ECommerceApplication implements CommandLineRunner {
 		 user.setPassword(bCryptPasswordEncoder.encode("1234"));
 		 userRepository.save(user);
 		 
-		 
 		AppUser u =userRepository.findOne(3L);
 		userRepository.delete(u);
 

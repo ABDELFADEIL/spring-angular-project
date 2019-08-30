@@ -31,11 +31,10 @@ public class ArticleController {
 	
 	@GetMapping("/get-articles-pages")
 	public Page<Article> getArticles(
-			@PathVariable Long id,
 			@RequestParam(name = "page", defaultValue="0") int page,
 			@RequestParam(name = "size", defaultValue="5") int size			
 			) {
-		return articleRespository.findByCategoryIdCategory(id, new PageRequest(page, size));
+		return articleRespository.findAll(new PageRequest(page, size));
 	}
 	
 	@GetMapping("/get-articles-category/{id}")

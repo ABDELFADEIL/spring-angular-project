@@ -14,8 +14,7 @@ import com.Ecommerce.entities.Panier;
 
 
 
-@CrossOrigin("*")
-@RepositoryRestResource
+
 public interface PanierRepository extends JpaRepository<Panier, Long>{
 	
 	public Panier findByAppUser(@Param("id") Long id);

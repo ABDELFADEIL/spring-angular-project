@@ -8,8 +8,7 @@ import com.Ecommerce.entities.Commande;
 
 
 
-@CrossOrigin("*")
-@RepositoryRestResource
+
 public interface CommandeRepository extends JpaRepository<Commande, Long>{
 
 }

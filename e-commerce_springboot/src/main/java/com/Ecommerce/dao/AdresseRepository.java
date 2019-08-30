@@ -9,8 +9,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.Ecommerce.entities.Adresse;
 
-@CrossOrigin("*")
-@RepositoryRestResource
+
 public interface AdresseRepository extends JpaRepository<Adresse, Long> {
 	
 	public Adresse findByAppUser(@Param(value="id") Long id);

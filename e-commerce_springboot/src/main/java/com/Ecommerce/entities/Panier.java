@@ -51,7 +51,6 @@ public class Panier implements Serializable {
 	
 	@OneToMany(cascade=CascadeType.ALL, fetch = FetchType.LAZY)
 	@JsonIgnore
-	//@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<LigneCommande> items;
 	
 	

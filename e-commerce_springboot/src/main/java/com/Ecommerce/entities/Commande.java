@@ -6,6 +6,7 @@ import java.util.Collection;
 import java.util.Date;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,17 +34,15 @@ import lombok.ToString;
 public class Commande implements Serializable{
 	
 
-	@Id @GeneratedValue(strategy=GenerationType.AUTO)
-	private Long idCommande;
-	private String dateCommande;
-	@OneToMany
-	@JoinColumn(name="idCommande")
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	private Long idCategory;
+	private String name;
+	private String description;
+	
+	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
 	@JsonIgnore
-	private Collection<LigneCommande> ligneCommandes;
-	 
-	/*
-	 * private Payement payement; private Livraison livraison;
-	 */
+	private Collection<Article> articles = new ArrayList<>();
 
 
 

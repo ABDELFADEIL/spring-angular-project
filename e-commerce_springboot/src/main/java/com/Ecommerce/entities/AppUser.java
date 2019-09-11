@@ -19,8 +19,10 @@ import javax.persistence.OneToOne;
 import org.hibernate.annotations.LazyCollection;
 import org.hibernate.annotations.LazyCollectionOption;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonRootName;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -30,6 +32,7 @@ import lombok.ToString;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor @ToString
+@JsonRootName(value = "appUser")
 public class AppUser implements Serializable{
 
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
@@ -41,16 +44,14 @@ public class AppUser implements Serializable{
 	private String lastName;
 	@ManyToMany
 	@JsonIgnore
-	//@LazyCollection(LazyCollectionOption.TRUE)
 	private Collection<AppRole> roles= new ArrayList<>();
 	private String adresse;
 	private String email;
 	private String tel;
 	@OneToMany(mappedBy="appUser")
 	@JsonIgnore
-	//@LazyCollection(LazyCollectionOption.FALSE)
 	private Collection<Adresse> adresses = new ArrayList<>();
-	@OneToOne(mappedBy="appUser")
+	@OneToOne(mappedBy="appUser", cascade= CascadeType.ALL)
 	private Panier panier;
 	
 }

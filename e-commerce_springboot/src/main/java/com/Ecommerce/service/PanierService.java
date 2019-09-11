@@ -20,5 +20,5 @@ public interface PanierService {
 	public LigneCommande getArticlePanier(Long id);
 	public void deleteAllArticlesPanier(Long idPanier);
 	public Collection<LigneCommande>  getAllArticlesPanier(Long idPanier);
-    public Page<LigneCommande> getAllPnierPage(Long id, Pageable pageable); 	
+    public Page<LigneCommande> getAllPnierPage(Long id, Pageable pageable);
 }

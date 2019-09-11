@@ -2,6 +2,7 @@ package com.Ecommerce.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,11 +21,10 @@ public class LigneCommande implements Serializable{
 	
 	@Id @GeneratedValue(strategy=GenerationType.AUTO)
 	private Long idLigneCommande;
-	@ManyToOne
+	@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="idArticle")
 	private Article article;
 	private int quantite;
 	private double prix;
-
 
 }

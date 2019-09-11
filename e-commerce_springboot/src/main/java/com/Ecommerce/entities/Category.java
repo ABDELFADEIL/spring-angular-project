@@ -34,10 +34,9 @@ public class Category implements Serializable{
 	private Long idCategory;
 	private String name;
 	private String description;
-	
 	@OneToMany(mappedBy="category", fetch=FetchType.LAZY)
 	@JsonIgnore
-	//@LazyCollection(LazyCollectionOption.FALSE)
-	private Collection<Article> articles = new ArrayList<>();
+	private Collection<Article> articles = new ArrayList<Article>();
+
 
 }

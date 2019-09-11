@@ -62,7 +62,16 @@ public class ArticleController {
 	
 	@PutMapping("modifier-article")
 	public Article modifierArticle(@RequestBody Article article) {
-		return articleRespository.save(article);
+		Article a =	articleRespository.getOne(article.getIdArticle());
+		a.setIdArticle(article.getIdArticle());
+		a.setName(article.getName());
+		a.setDescription(article.getDescription());
+		a.setPrice(article.getPrice());
+		a.setQuantity(article.getQuantity());
+		a.setPhoto(article.getPhoto());
+		a.setDisponible(article.isDisponible());
+		//Category c = categoryRepository.findByName(article)
+		return articleRespository.save(a);
 	}
 
 }

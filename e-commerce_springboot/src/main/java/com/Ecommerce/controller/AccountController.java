@@ -1,8 +1,11 @@
 package com.Ecommerce.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.security.oauth2.resource.PrincipalExtractor;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -56,5 +59,9 @@ public class AccountController {
 		userRepository.delete(id);
 	}
 	
+	@GetMapping("/getCurrentUser")
+	public AppUser getCurrentUser() {
+		return accountService.getUserDetails();
+	}
 
 }

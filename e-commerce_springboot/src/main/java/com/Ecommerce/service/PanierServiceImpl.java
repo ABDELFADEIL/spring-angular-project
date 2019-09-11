@@ -37,7 +37,7 @@ public class PanierServiceImpl implements PanierService{
 	@Override
 	public Panier CreatePanier(Long idUser) {
 		Panier panier= new Panier();
-		AppUser user = userRepository.findOne(idUser);
+		AppUser user = userRepository.getOne(idUser);
 		Panier p= panierRepository.save(panier);
 		p.setAppUser(user);
 		return panierRepository.save(p);
@@ -45,16 +45,24 @@ public class PanierServiceImpl implements PanierService{
 
 	@Override
 	public LigneCommande AddArticlePanier(LigneCommande article, Long idPanier) {
-		Panier p= panierRepository.findOne(idPanier);
-		LigneCommande ar= ligneCommandeRespository.save(article);
-		p.getItems().add(ar);
-		panierRepository.save(p);
+		Panier p= panierRepository.getOne(idPanier);
+		LigneCommande ar= ligneCommandeRespository.getOne(article.getIdLigneCommande());
+		if(ar==null){
+			article.setQuantite(1);
+			ar =ligneCommandeRespository.save(article);
+			p.getItems().add(ar);
+			panierRepository.save(p);
+		}else {
+			int q = ar.getQuantite();
+			ar.setQuantite(q+1);
+			panierRepository.save(p);
+		}
 		return ar;
 	}
 
 	@Override
 	public void DeleteArticlePanier(Long idArticle) {
-		LigneCommande lc =ligneCommandeRespository.findOne(idArticle);
+		LigneCommande lc =ligneCommandeRespository.getOne(idArticle);
 		if(lc.getQuantite() == 1) {
 			ligneCommandeRespository.delete(idArticle);
 		}
@@ -75,7 +83,7 @@ public class PanierServiceImpl implements PanierService{
 
 	@Override
 	public LigneCommande getArticlePanier(Long id) {
-		return ligneCommandeRespository.findOne(id);
+		return ligneCommandeRespository.getOne(id);
 		
 	}
 

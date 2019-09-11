@@ -49,7 +49,7 @@ public class ECommerceApplication implements CommandLineRunner {
 	@Autowired
 	private BCryptPasswordEncoder bCryptPasswordEncoder;
 	@Autowired
-	private AccountServiceImpl accountService;
+	private AccountService accountService;
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
@@ -87,6 +87,7 @@ public class ECommerceApplication implements CommandLineRunner {
 		  adresseRepository.save(a5);
 		  
 		  
+		  
 		  Panier p1 = new Panier(); Panier p2 = new Panier(); Panier p3 = new Panier();
 		  Panier p4 = new Panier(); Panier p5 = new Panier();
 		  
@@ -96,32 +97,48 @@ public class ECommerceApplication implements CommandLineRunner {
 		  
 		  
 		  
-		  AppRole r1 = new AppRole(null, "USER"); AppRole r2 = new AppRole(null,
-		  "ADMIN"); accountService.saveRole(r1); accountService.saveRole(r2);
+		  AppRole r1 = new AppRole(null, "ADMIN"); 
+		  AppRole r2 = new AppRole(null, "USER");
+		  accountService.saveRole(r1);
+		  accountService.saveRole(r2);
 		  
-		  AppUser u1 = new AppUser(); AppUser u2 = new AppUser();
 		  
-		  u1.setUsername("admin"); u1.setPassword("1234"); u2.setUsername("user");
-		  u2.setPassword("1234");
+		  AppUser u1 = new AppUser();
+		  AppUser u2 = new AppUser();
 		  
-		  accountService.saveUser(u1); accountService.saveUser(u2);
-		  
-		
-		  u1.getAdresses().add(a1); u1.getAdresses().add(a2); u1.getAdresses().add(a5);
-		  
-		  u2.getAdresses().add(a3); u2.getAdresses().add(a4);
-		  
-		  adresseRepository.save(a1); adresseRepository.save(a2);
-		  adresseRepository.save(a3); adresseRepository.save(a4);
-		  adresseRepository.save(a5);
 		 
 		  
-		  accountService.saveUser(u1); accountService.saveUser(u2);
+		  u1.setUsername("admin"); 
+		  u1.setPassword(bCryptPasswordEncoder.encode("1234")); 
+		  u2.setUsername("user");
+		  u2.setPassword(bCryptPasswordEncoder.encode("1234"));
 		  
+		  accountService.saveUser(u1);
+		  accountService.saveUser(u2);
 		  
 		  accountService.addRoleToUser(u1.getUsername(), r1.getRoleName());
 		  accountService.addRoleToUser(u1.getUsername(), r2.getRoleName());
 		  accountService.addRoleToUser(u2.getUsername(), r2.getRoleName());
+		
+		  u1.getAdresses().add(a1);
+		  u1.getAdresses().add(a2);
+		  u1.getAdresses().add(a5);
+		  
+		  u2.getAdresses().add(a3);
+		  u2.getAdresses().add(a4);
+		  
+		  adresseRepository.save(a1);
+		  adresseRepository.save(a2);
+		  adresseRepository.save(a3);
+		  adresseRepository.save(a4);
+		  adresseRepository.save(a5);
+		 
+		  
+		  accountService.saveUser(u1); 
+		  accountService.saveUser(u2);
+		  
+		  
+		 
 		  
 		  
 		//  u1.setPanier(p1); u2.setPanier(p2);

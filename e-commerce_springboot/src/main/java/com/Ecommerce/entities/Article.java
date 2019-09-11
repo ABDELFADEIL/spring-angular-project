@@ -2,6 +2,7 @@ package com.Ecommerce.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -32,7 +33,7 @@ public class Article implements Serializable{
 	private int quantity;
 	private int price;
 	private String photo;
-	@ManyToOne
+	@ManyToOne(cascade= CascadeType.ALL)
 	@JoinColumn(name="idCategory")
 	private Category category;
 	private boolean disponible;	

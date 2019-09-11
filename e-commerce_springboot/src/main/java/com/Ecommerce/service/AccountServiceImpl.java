@@ -1,7 +1,10 @@
 package com.Ecommerce.service;
 
 
+import java.security.Principal;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -42,9 +45,19 @@ public class AccountServiceImpl implements AccountService{
 		userRepository.save(user);
 	}
 	
+	
+	
+	@Override
+	public AppUser getUserDetails() {
+		Principal principal = SecurityContextHolder.getContext().getAuthentication();
+		String username = principal.getName();
+		return userRepository.findByUsername(username);
+		 
+				}
 	@Override
 	public void deleteUser(Long idUser) {
-	  	userRepository.delete(idUser);
+		userRepository.delete(idUser);
+		
 	}
 
 }

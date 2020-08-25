@@ -16,7 +16,10 @@ public class Question implements Serializable {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String textQuestion;
+    @ManyToOne
+    @JoinColumn(name="idQuizz")
+    private Quizz quizz;
     @OneToMany
     private List<Reponse> reponses = new ArrayList<>();
-    private Difuculte difuculte;
+
 }

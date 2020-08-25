@@ -15,8 +15,9 @@ public class Quizz implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany
+    @OneToMany(mappedBy="quizz")
     private List<Question> questions = new ArrayList<>();
     private int  duration;
+    private Difuculte difuculte;
 
 }

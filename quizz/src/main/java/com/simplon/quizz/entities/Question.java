@@ -19,7 +19,7 @@ public class Question implements Serializable {
     @ManyToOne
     @JoinColumn(name="idQuizz")
     private Quizz quizz;
-    @OneToMany
+    @OneToMany(mappedBy = "question")
     private List<Reponse> reponses = new ArrayList<>();
 
 }

@@ -15,7 +15,7 @@ public class Categorie implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany
+    @OneToMany(mappedBy="categorie")
     private List<Quizz> quizzes = new ArrayList<>();
     private String type;
 }

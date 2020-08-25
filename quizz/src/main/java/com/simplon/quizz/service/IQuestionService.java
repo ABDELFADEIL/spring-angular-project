@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface IQuestionService {
     List<Question> getQuestionsParQuizzId(Long idQuizz);
-    Question addQuestion(Question question);
+    Question addQuestion(String textQuestion, Long idQuizz);
     Question updateQuestion(Question question);
     boolean deleteQuestion(Long idQuestion);
 }

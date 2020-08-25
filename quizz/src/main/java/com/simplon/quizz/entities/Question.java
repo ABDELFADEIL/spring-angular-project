@@ -1,8 +1,6 @@
 package com.simplon.quizz.entities;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -11,6 +9,7 @@ import java.util.List;
 
 @Entity
 @Data @AllArgsConstructor @NoArgsConstructor
+// @Getter @Setter
 public class Question implements Serializable {
 
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)

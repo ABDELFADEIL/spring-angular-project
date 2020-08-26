@@ -21,10 +21,12 @@ public class QuestionServiceImpl implements IQuestionService {
 	
 	@Autowired
 	CategorieRepository catRepository ;
+
+
 	@Override
-	public List<Question> getQuestionsParQuizzId(Long idQuizz) {
+	public List<Question> getQuestionsParCategoryId(Long idQuizz) {
 		// TODO Auto-generated method stub
-		return null;
+		return questionRepository.findByCategorie(idQuizz);
 	}
 
 	
@@ -42,13 +44,20 @@ public class QuestionServiceImpl implements IQuestionService {
 	@Override
 	public Question updateQuestion(Question question) {
 		// TODO Auto-generated method stub
-		return null;
+		return questionRepository.save(question);
 	}
 
 	@Override
 	public boolean deleteQuestion(Long idQuestion) {
-		// TODO Auto-generated method stub
-		return false;
+
+		try {
+			Question question = questionRepository.findById(idQuestion).get();
+			questionRepository.delete(question);
+		}catch (Exception e) {
+			e.getStackTrace();
+			return false;
+		}
+		return true;
 	}
 
 

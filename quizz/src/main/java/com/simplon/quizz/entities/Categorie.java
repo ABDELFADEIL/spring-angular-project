@@ -22,9 +22,7 @@ public class Categorie implements Serializable {
     
     @OneToMany(mappedBy="categorie")
     private List<Quizz> quizzes;
-    
     @OneToMany(mappedBy="categorie")
     private List<Question> questions;
-    
     private String name;
 }

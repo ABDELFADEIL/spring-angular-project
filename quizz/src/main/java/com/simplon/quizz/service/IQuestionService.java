@@ -9,4 +9,5 @@ public interface IQuestionService {
     Question addQuestion(String textQuestion, Long idQuizz);
     Question updateQuestion(Question question);
     boolean deleteQuestion(Long idQuestion);
+    Question getQuestion(Long idQuestion);
 }

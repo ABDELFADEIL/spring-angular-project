@@ -38,11 +38,23 @@ public class QuestionServiceImpl implements IQuestionService {
 
     @Override
     public Question updateQuestion(Question question) {
-        return null;
+        return questionRepository.save(question);
     }
 
     @Override
     public boolean deleteQuestion(Long idQuestion) {
-        return false;
+        try {
+            questionRepository.deleteById(idQuestion);
+        } catch (Exception e){
+            e.getStackTrace();
+            return false;
+        }
+
+        return true;
+    }
+
+    @Override
+    public Question getQuestion(Long idQuestion) {
+        return questionRepository.findById(idQuestion).get();
     }
 }

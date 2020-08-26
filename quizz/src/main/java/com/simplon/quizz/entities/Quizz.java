@@ -18,7 +18,7 @@ public class Quizz implements Serializable {
     @OneToMany(mappedBy="quizz")
     private List<Question> questions = new ArrayList<>();
     @ManyToOne
-    @JoinColumn(name="idCategory")
+    @JoinColumn(name="idCategorie")
     private Categorie categorie;
     private int  duration;
     private Difuculte difuculte;

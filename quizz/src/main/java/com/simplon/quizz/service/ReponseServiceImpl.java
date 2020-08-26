@@ -22,7 +22,7 @@ public class ReponseServiceImpl implements IReponseService{
 
     @Override
     public List<Reponse> getReponseParQuestionId(Long idQuestion) {
-        return null;
+        return reponseRepository.findByQuestionId(idQuestion);
     }
 
     @Override

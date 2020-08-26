@@ -33,7 +33,7 @@ public class ReponseServiceImpl implements IReponseService{
     @Override
     public Reponse addReponse(String textReponse, Long idReponse) {
         Reponse reponse = new Reponse();
-        Question question = questionRepository.findById(idReponse)
+        Question question = questionRepository.findById(idReponse).get();
         reponse.setTextDeReponse(textReponse);
         reponse.setQuestion(question);
         return reponseRepository.save(reponse);

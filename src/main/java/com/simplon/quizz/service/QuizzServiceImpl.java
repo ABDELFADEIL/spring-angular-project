@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.simplon.quizz.dao.CategorieRepository;
+import com.simplon.quizz.dao.DifuculteRepository;
 import com.simplon.quizz.dao.QuestionRepository;
 import com.simplon.quizz.dao.QuizzRepository;
 import com.simplon.quizz.entities.Categorie;
@@ -29,14 +30,18 @@ public class QuizzServiceImpl implements IQuizzService{
 	CategorieRepository catRepository;
 	
 	@Autowired
+	DifuculteRepository diffRepository;
+	
+	@Autowired
 	private QuizzRepository quizRepository ;
 	
 	@Override
-	public Quizz createQuizz(int duration , Difuculte diff , Long catId ) {
+	public Quizz createQuizz(int duration , Long  diffId , Long catId ) {
 		// TODO Auto-generated method stub
 		List<Question> allQuestions = questionRepository.findAll();
 		
 		Categorie catSelected = catRepository.findById(catId).get();
+		Difuculte diff = diffRepository.findById(diffId).get();
 		List<Question> givenQuestions = questionRepository.findByCategorie(catId);
 		Collections.shuffle(givenQuestions);
 		int tailleQuizz = 10 ; 

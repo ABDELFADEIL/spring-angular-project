@@ -33,7 +33,9 @@ public class Quizz implements Serializable {
 	
 	private int duration;
 	
-	
+	@ManyToOne
+	@JoinColumn(name = "idDiff")
+	@JsonIgnore
 	private Difuculte difuculte;
 	
 	@ManyToMany
